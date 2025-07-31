@@ -10,14 +10,14 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 #include "Engine/LocalPlayer.h"
+#include "PlayerHUD.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
 //////////////////////////////////////////////////////////////////////////
 // AEscapeTimeLoopCharacter
 
-AEscapeTimeLoopCharacter::AEscapeTimeLoopCharacter()
-{
+AEscapeTimeLoopCharacter::AEscapeTimeLoopCharacter() {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(55.f, 96.0f);
 		
@@ -37,24 +37,33 @@ AEscapeTimeLoopCharacter::AEscapeTimeLoopCharacter()
 
 }
 
+
+void AEscapeTimeLoopCharacter::BeginPlay() {
+	Super::BeginPlay();
+	
+	if (PlayerHUDClass) {
+		if (PlayerHUD = CreateWidget<UPlayerHUD> (GetWorld(), PlayerHUDClass); PlayerHUD) {
+			PlayerHUD -> AddToViewport();
+		}
+		
+	}
+} 
+
+
 //////////////////////////////////////////////////////////////////////////// Input
 
-void AEscapeTimeLoopCharacter::NotifyControllerChanged()
-{
+void AEscapeTimeLoopCharacter::NotifyControllerChanged() {
 	Super::NotifyControllerChanged();
 
 	// Add Input Mapping Context
-	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
-	{
-		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
-		{
+	if (APlayerController* PlayerController = Cast<APlayerController>(Controller)) {
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController -> GetLocalPlayer()) ) {
 			Subsystem->AddMappingContext(DefaultMappingContext, 0);
 		}
 	}
 }
 
-void AEscapeTimeLoopCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{	
+void AEscapeTimeLoopCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) {	
 	// Set up action bindings
 	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent))
 	{

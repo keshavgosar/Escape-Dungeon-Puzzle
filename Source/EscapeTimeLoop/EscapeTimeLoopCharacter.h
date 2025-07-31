@@ -1,5 +1,3 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -12,13 +10,13 @@ class USkeletalMeshComponent;
 class UCameraComponent;
 class UInputAction;
 class UInputMappingContext;
+class UPlayerHUD;
 struct FInputActionValue;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
 UCLASS(config=Game)
-class AEscapeTimeLoopCharacter : public ACharacter
-{
+class AEscapeTimeLoopCharacter : public ACharacter {
 	GENERATED_BODY()
 
 	/** Pawn mesh: 1st person view (arms; seen only by self) */
@@ -56,6 +54,8 @@ protected:
 	void Look(const FInputActionValue& Value);
 
 protected:
+	virtual void BeginPlay() override;
+
 	// APawn interface
 	virtual void NotifyControllerChanged() override;
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
@@ -67,5 +67,9 @@ public:
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
+	UPlayerHUD* PlayerHUD;
+	
+	UPROPERTY(EditAnywhere, Category = "PlayerHUD")
+	TSubclassOf<UPlayerHUD> PlayerHUDClass;
 };
 
