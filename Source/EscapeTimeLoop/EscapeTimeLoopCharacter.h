@@ -71,5 +71,28 @@ public:
 	
 	UPROPERTY(EditAnywhere, Category = "PlayerHUD")
 	TSubclassOf<UPlayerHUD> PlayerHUDClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Interaction")
+	TMap<FName, int> Inventory;
+
+	UFUNCTION(BlueprintCallable)
+	void Interact();
+
+	UFUNCTION(BlueprintCallable)
+	void InteractionCompleted();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void DisplayPickUpItemUI();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void RemovePickUpItemUI();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void DisplayInteractPromptUI(bool bIsItemLocked, FName UnlockTag);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void RemoveInteractPromptUI();
+
+	bool bIsInteracting = false;
 };
 

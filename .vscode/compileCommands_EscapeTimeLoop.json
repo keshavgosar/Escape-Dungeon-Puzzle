@@ -1,5 +1,21 @@
 [
 	{
+		"file": "G:\\Unreal Prototypes\\EscapeTimeLoop\\Source\\EscapeTimeLoop\\Cabinet.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@G:\\Unreal Prototypes\\EscapeTimeLoop\\.vscode\\compileCommands_EscapeTimeLoop\\EscapeTimeLoop.1.rsp"
+		],
+		"directory": "C:\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "G:\\Unreal Prototypes\\EscapeTimeLoop\\Source\\EscapeTimeLoop\\Cabinet.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@G:\\Unreal Prototypes\\EscapeTimeLoop\\.vscode\\compileCommands_EscapeTimeLoop\\EscapeTimeLoop.1.rsp"
+		],
+		"directory": "C:\\UE_5.5\\Engine\\Source"
+	},
+	{
 		"file": "G:\\Unreal Prototypes\\EscapeTimeLoop\\Source\\EscapeTimeLoop\\EscapeTimeLoop.Build.cs",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
@@ -104,6 +120,22 @@
 		"directory": "C:\\UE_5.5\\Engine\\Source"
 	},
 	{
+		"file": "G:\\Unreal Prototypes\\EscapeTimeLoop\\Source\\EscapeTimeLoop\\MoverComponent.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@G:\\Unreal Prototypes\\EscapeTimeLoop\\.vscode\\compileCommands_EscapeTimeLoop\\EscapeTimeLoop.1.rsp"
+		],
+		"directory": "C:\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "G:\\Unreal Prototypes\\EscapeTimeLoop\\Source\\EscapeTimeLoop\\MoverComponent.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@G:\\Unreal Prototypes\\EscapeTimeLoop\\.vscode\\compileCommands_EscapeTimeLoop\\EscapeTimeLoop.1.rsp"
+		],
+		"directory": "C:\\UE_5.5\\Engine\\Source"
+	},
+	{
 		"file": "G:\\Unreal Prototypes\\EscapeTimeLoop\\Source\\EscapeTimeLoop\\PlayerHUD.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
@@ -113,6 +145,38 @@
 	},
 	{
 		"file": "G:\\Unreal Prototypes\\EscapeTimeLoop\\Source\\EscapeTimeLoop\\PlayerHUD.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@G:\\Unreal Prototypes\\EscapeTimeLoop\\.vscode\\compileCommands_EscapeTimeLoop\\EscapeTimeLoop.1.rsp"
+		],
+		"directory": "C:\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "G:\\Unreal Prototypes\\EscapeTimeLoop\\Source\\EscapeTimeLoop\\RotatorComponent.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@G:\\Unreal Prototypes\\EscapeTimeLoop\\.vscode\\compileCommands_EscapeTimeLoop\\EscapeTimeLoop.1.rsp"
+		],
+		"directory": "C:\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "G:\\Unreal Prototypes\\EscapeTimeLoop\\Source\\EscapeTimeLoop\\RotatorComponent.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@G:\\Unreal Prototypes\\EscapeTimeLoop\\.vscode\\compileCommands_EscapeTimeLoop\\EscapeTimeLoop.1.rsp"
+		],
+		"directory": "C:\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "G:\\Unreal Prototypes\\EscapeTimeLoop\\Source\\EscapeTimeLoop\\UnlockItemComponent.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@G:\\Unreal Prototypes\\EscapeTimeLoop\\.vscode\\compileCommands_EscapeTimeLoop\\EscapeTimeLoop.1.rsp"
+		],
+		"directory": "C:\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "G:\\Unreal Prototypes\\EscapeTimeLoop\\Source\\EscapeTimeLoop\\UnlockItemComponent.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
 			"@G:\\Unreal Prototypes\\EscapeTimeLoop\\.vscode\\compileCommands_EscapeTimeLoop\\EscapeTimeLoop.1.rsp"

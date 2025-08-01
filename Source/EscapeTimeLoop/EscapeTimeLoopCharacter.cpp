@@ -47,6 +47,10 @@ void AEscapeTimeLoopCharacter::BeginPlay() {
 		}
 		
 	}
+
+	Inventory.Add(TEXT("Garlic"), 0);
+	Inventory.Add(TEXT("Door Key"), 0);
+	Inventory.Add(TEXT("Chest Key"), 0);
 } 
 
 
@@ -108,4 +112,13 @@ void AEscapeTimeLoopCharacter::Look(const FInputActionValue& Value)
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
+}
+
+void AEscapeTimeLoopCharacter::Interact() {
+	bIsInteracting = true;
+}
+
+
+void AEscapeTimeLoopCharacter::InteractionCompleted() {
+	bIsInteracting = false;
 }
