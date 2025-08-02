@@ -5,6 +5,10 @@
 
 
 
+class ALever;
+class UPointLightComponent;
+
+
 UCLASS()
 class ESCAPETIMELOOP_API ACabinet : public AActor {
 	GENERATED_BODY()
@@ -21,16 +25,36 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-private:
+protected:
+	UPROPERTY(VisibleAnywhere)
+	USceneComponent* RootComp;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UStaticMeshComponent* CabinetMesh;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	USkeletalMeshComponent* CabinetDoorMesh;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UStaticMeshComponent* BulbMesh;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UPointLightComponent* BulbLight;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Lever")
+	UChildActorComponent* LeftLever;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Lever")
+	UChildActorComponent* MiddleLever;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Lever")
+	UChildActorComponent* RightLever;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<ALever> LeverClass;
+
+	
+
 	int GenerateBinaryNumber(int Number);
 
-public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lever")
-	AActor* LeftLever;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lever")
-	AActor* MiddleLever;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lever")
-	AActor* RightLever;
 };

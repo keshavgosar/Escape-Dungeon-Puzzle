@@ -17,6 +17,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Timer")
 	int Timer;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	UTextBlock* PromptDisplay;
+
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	FText GetTimerText();
 

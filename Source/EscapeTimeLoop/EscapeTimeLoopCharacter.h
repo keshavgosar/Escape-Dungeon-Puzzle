@@ -67,6 +67,7 @@ public:
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "PlayerHUD")
 	UPlayerHUD* PlayerHUD;
 	
 	UPROPERTY(EditAnywhere, Category = "PlayerHUD")
@@ -93,6 +94,7 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void RemoveInteractPromptUI();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Interaction")
 	bool bIsInteracting = false;
 };
 
