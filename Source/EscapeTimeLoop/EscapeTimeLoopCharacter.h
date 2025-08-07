@@ -31,6 +31,9 @@ class AEscapeTimeLoopCharacter : public ACharacter {
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputMappingContext* DefaultMappingContext;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputMappingContext* InteractContext;
+
 	/** Jump Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
 	UInputAction* JumpAction;
@@ -42,6 +45,10 @@ class AEscapeTimeLoopCharacter : public ACharacter {
 	/** Look Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* LookAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* InteractAction;
+	
 	
 public:
 	AEscapeTimeLoopCharacter();
@@ -93,6 +100,9 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void RemoveInteractPromptUI();
+
+	UFUNCTION(BlueprintCallable)
+	void InteractButton();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Interaction")
 	bool bIsInteracting = false;

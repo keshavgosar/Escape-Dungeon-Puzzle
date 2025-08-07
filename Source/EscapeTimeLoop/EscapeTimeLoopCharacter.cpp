@@ -11,6 +11,7 @@
 #include "InputActionValue.h"
 #include "Engine/LocalPlayer.h"
 #include "PlayerHUD.h"
+#include "ButtonPuzzle/Public/PuzzleButton.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -80,6 +81,9 @@ void AEscapeTimeLoopCharacter::SetupPlayerInputComponent(UInputComponent* Player
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AEscapeTimeLoopCharacter::Look);
+
+		//interacting
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &AEscapeTimeLoopCharacter::InteractButton);
 	}
 	else
 	{
@@ -121,4 +125,25 @@ void AEscapeTimeLoopCharacter::Interact() {
 
 void AEscapeTimeLoopCharacter::InteractionCompleted() {
 	bIsInteracting = false;
+}
+
+void AEscapeTimeLoopCharacter::InteractButton()
+{
+	FVector Start;
+    FRotator Rot;
+    GetController()->GetPlayerViewPoint(Start, Rot);
+    
+    FVector End = Start + Rot.Vector() * 500.f;
+
+    FHitResult Hit;
+    FCollisionQueryParams Params;
+    Params.AddIgnoredActor(this);
+
+    if (GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, Params))
+    {
+        if (APuzzleButton* Button = Cast<APuzzleButton>(Hit.GetActor()))
+        {
+            Button->PressButton();
+        }
+    }
 }

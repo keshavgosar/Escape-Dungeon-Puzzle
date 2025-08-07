@@ -14,8 +14,6 @@ class ESCAPETIMELOOP_API UPlayerHUD : public UUserWidget {
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Timer")
-	int Timer;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	UTextBlock* PromptDisplay;
@@ -30,8 +28,6 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	UCanvasPanel* Panel;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
-	UTextBlock* TimerDisplay;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Timer")
 	int Minutes;
