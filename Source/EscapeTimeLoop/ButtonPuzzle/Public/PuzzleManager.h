@@ -30,6 +30,14 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void RestartLevel();
 
+	FTimerHandle QuitWidgetTimerHandle;
+
+	UPROPERTY(EditAnywhere, Category = "Quit Class")
+	TSubclassOf<UUserWidget> QuitWidgetClass;
+
+	UFUNCTION()
+	void ShowQuitWidget();
+
 protected:
 	virtual void BeginPlay() override;
 

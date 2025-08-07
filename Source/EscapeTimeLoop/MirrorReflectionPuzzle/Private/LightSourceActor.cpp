@@ -6,19 +6,18 @@
 #include "NiagaraSystem.h"
 #include "NiagaraComponent.h"
 
-// Sets default values
+
 ALightSourceActor::ALightSourceActor()
 {
     PrimaryActorTick.bCanEverTick = true;
 }
 
-// Called when the game starts or when spawned
 void ALightSourceActor::BeginPlay()
 {
     Super::BeginPlay();
 }
 
-// Called every frame
+
 void ALightSourceActor::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
@@ -27,7 +26,7 @@ void ALightSourceActor::Tick(float DeltaTime)
 
 void ALightSourceActor::FireBeam()
 {
-    // Destroy previously spawned beams to prevent accumulation
+    
     for (UNiagaraComponent* Beam : SpawnedBeams)
     {
         if (Beam)
@@ -47,15 +46,15 @@ void ALightSourceActor::FireBeam()
         FCollisionQueryParams Params;
         Params.AddIgnoredActor(this);
 
-        // Debug line before trace
+       
         DrawDebugLine(GetWorld(), Start, End, FColor::Green, false, 0.1f, 0, 2.0f);
 
         if (GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, Params))
         {
-            // Debug: log hit
+            
             UE_LOG(LogTemp, Warning, TEXT("Hit %s at %s"), *Hit.GetActor()->GetName(), *Hit.ImpactPoint.ToString());
 
-            // Spawn Niagara beam
+           
             UNiagaraComponent* Beam = UNiagaraFunctionLibrary::SpawnSystemAtLocation(
                 GetWorld(),
                 LaserBeamFX,
@@ -70,7 +69,7 @@ void ALightSourceActor::FireBeam()
                 SpawnedBeams.Add(Beam);
             }
 
-            // Draw debug hit normal
+            
             DrawDebugDirectionalArrow(GetWorld(), Hit.ImpactPoint, Hit.ImpactPoint + Hit.ImpactNormal * 100.0f, 50.0f, FColor::Yellow, false, 1.0f, 0, 2.0f);
 
             if (AMirrorActor* Mirror = Cast<AMirrorActor>(Hit.GetActor()))
@@ -89,7 +88,7 @@ void ALightSourceActor::FireBeam()
                 break;
             }
 
-            // Hit something else
+        
             UE_LOG(LogTemp, Warning, TEXT("Beam hit a non-reflective surface"));
             break;
         }

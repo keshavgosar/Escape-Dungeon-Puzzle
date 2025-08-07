@@ -28,7 +28,7 @@ void APuzzleButton::BeginPlay()
 	APlayerController* PC = GetWorld()->GetFirstPlayerController();
 	if (PC)
 	{
-		PC->bShowMouseCursor = true;
+		//PC->bShowMouseCursor = true;
 		PC->bEnableClickEvents = true;
 		PC->bEnableMouseOverEvents = true;
 	}

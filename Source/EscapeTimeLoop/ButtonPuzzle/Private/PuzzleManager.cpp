@@ -3,10 +3,33 @@
 #include "EscapeTimeLoop/ButtonPuzzle/Public/PuzzleButton.h"
 #include "Kismet/GameplayStatics.h"
 #include "TimerManager.h"
+#include "Blueprint/UserWidget.h"
 
 APuzzleManager::APuzzleManager()
 {
 	PrimaryActorTick.bCanEverTick = false;
+}
+
+void APuzzleManager::ShowQuitWidget()
+{
+	APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0);
+	if (PC && QuitWidgetClass)
+	{
+		UUserWidget* QuitWidget = CreateWidget<UUserWidget>(PC, QuitWidgetClass);
+		if (QuitWidget)
+		{
+			QuitWidget->AddToViewport();
+
+			PC->bShowMouseCursor = true;
+
+			FInputModeGameAndUI InputMode;
+			InputMode.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
+			InputMode.SetHideCursorDuringCapture(false);
+			PC->SetInputMode(InputMode);
+
+			UE_LOG(LogTemp, Warning, TEXT("Quit widget shown after 20 seconds."));
+		}
+	}
 }
 
 void APuzzleManager::BeginPlay()
@@ -73,6 +96,8 @@ void APuzzleManager::CheckSolution()
 		{
 			DoorToOpen->OpenDoor();
 		}
+		
+		GetWorld()->GetTimerManager().SetTimer(QuitWidgetTimerHandle, this, &APuzzleManager::ShowQuitWidget, 8.0f, false);
 	}
 	else
 	{

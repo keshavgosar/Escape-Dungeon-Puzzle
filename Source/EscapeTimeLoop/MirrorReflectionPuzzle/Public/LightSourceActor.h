@@ -15,7 +15,7 @@ class ESCAPETIMELOOP_API ALightSourceActor : public AActor
 public:	
 	ALightSourceActor();
 
-	// Max number of reflections
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Laser")
 	int32 MaxReflections = 10;
 
